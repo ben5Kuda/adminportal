@@ -1,21 +1,50 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+<div class="back">
+    <mat-toolbar color="primary">
+        <span>{{title}}</span>
+        <span><div class="chips">
+      <mat-chip-list>
+          <mat-chip  color="accent" selected *ngFor="let opt of options" [class.selected]="opt === selectedOption" (click)="onSelect(opt)">{{opt}}</mat-chip>
+         
+      </mat-chip-list>
+  </div></span>
+
+        <span class="fill"></span>
+
+        <mat-chip color="primary" selected (click)="logoff()">Logout</mat-chip>
+    </mat-toolbar>
+    <p></p>
+    <br>
+
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+
+<p-sidebar [(visible)]="visibleSidebar1" [baseZIndex]="10000">
+    <h1 style="font-weight:normal">Left Sidebar</h1>
+    <button pButton type="button" (click)="visibleSidebar1 = false" label="Save" class="ui-button-success"></button>
+    <button pButton type="button" (click)="visibleSidebar1 = false" label="Cancel" class="ui-button-secondary"></button>
+</p-sidebar>
+
+
+<!--<div class="navigate">
+    <nav style="padding:40px; display: flex; flex-direction: column;">
+        <a routerLink="/fixtures">Fixtures</a>
+        <a routerLink="/orders">Orders</a>
+    </nav>
+</div>-->
+
+
+<!--<app-fixtures></app-fixtures> -->
+<!-- Footer -->
+<footer class="page-footer font-small blue fixed-bottom">
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2019 Copyright:
+        <a href="https://tikit.azurewebsites.net"> Ticket Market Place</a>
+    </div>
+    <!-- Copyright -->
+
+</footer>
+
+<!-- Footer -->
 
 <router-outlet></router-outlet>

@@ -1,0 +1,94 @@
+.example-h2 {
+    margin: 10px;
+}
+
+.example-section {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    height: 60px;
+}
+
+.example-margin {
+    margin: 0 10px;
+}
+
+[class*='col-'] {
+    float: left;
+    padding-right: 20px;
+    padding-bottom: 20px;
+}
+
+[class*='col-']:last-of-type {
+    padding-right: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+*,
+*:after,
+*:before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+h3 {
+    text-align: center;
+    margin-bottom: 0;
+}
+
+h4 {
+    position: relative;
+}
+
+.grid {
+    margin: 20px;
+}
+
+.col-1-4 {
+    width: 25%;
+}
+
+.module {
+    padding: 20px;
+    text-align: center;
+    color: #eee;
+    max-height: 120px;
+    margin: 0 auto;
+    width: 25%;
+    background-color: #3f51b5;
+    border-radius: 2px;
+}
+
+.module:hover {
+    background-color: #ff4081;
+    cursor: pointer;
+    color: #eee;
+}
+
+.grid-pad {
+    padding: 10px 0;
+}
+
+.grid-pad>[class*='col-']:last-of-type {
+    padding-right: 20px;
+}
+
+@media (max-width: 600px) {
+    .module {
+        font-size: 10px;
+        max-height: 75px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .grid {
+        margin: 0;
+    }
+    .module {
+        min-width: 60px;
+    }
+}

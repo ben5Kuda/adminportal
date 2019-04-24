@@ -1,0 +1,30 @@
+.fill {
+    flex: 1
+}
+
+.selected {
+    background-color: red !important;
+    color: white;
+}
+
+.chips {
+    display: flex;
+    flex: 1;
+    margin: 0 auto;
+}
+
+div.chips {
+    align-items: stretch;
+    flex-direction: column;
+}
+
+.hy {
+    background-color: gray;
+}
+
+.sidenav-container {
+    width: 100%;
+    height: 100%;
+    margin: 10px;
+    border: 1px solid #555;
+}

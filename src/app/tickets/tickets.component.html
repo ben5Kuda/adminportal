@@ -1,0 +1,66 @@
+<div class="example-container">
+    <h3>Add Tickets</h3>
+    <form class="form-group" (ngSubmit)="onSubmit()" #ticketsForm="ngForm">
+
+        <!-- <div>
+            <mat-form-field>
+                <mat-label>Fixture</mat-label>
+                <mat-select name="fixture" [(ngModel)]="name" required>
+                    <mat-option *ngFor="let fixture of fixtureNames" [value]="fixture">
+                        {{fixture}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div> -->
+        <div>
+            <mat-form-field>
+                <input matInput [(ngModel)]="fixture.name" placeholder="Fixture name" name="fx" required disabled>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field>
+                <input matInput [(ngModel)]="model.price" placeholder="Price" name="price" required>
+            </mat-form-field>
+        </div>
+
+        <div>
+            <mat-form-field>
+                <input matInput [(ngModel)]="model.category" placeholder="Category" name="category" required>
+            </mat-form-field>
+        </div>
+
+        <div>
+            <mat-form-field>
+                <input matInput [(ngModel)]="model.block" placeholder="Block" name="block" required>
+            </mat-form-field>
+        </div>
+
+        <div>
+            <mat-form-field>
+                <input matInput [(ngModel)]="model.row" placeholder="Row" name="row" required>
+            </mat-form-field>
+        </div>
+
+        <div>
+            <mat-form-field>
+                <input matInput [(ngModel)]="model.quantityAvailable" [min]="minVal" [max]="maxVal" placeholder="Quantity Available" name="quantityAvailable" required>
+            </mat-form-field>
+        </div>
+
+        <div class="custom-btn">
+
+            <button mat-stroked-button color="accent" (click)="createTicket()" [disabled]="!ticketsForm.form.valid">Create</button>
+        </div>
+    </form>
+</div>
+
+<div class="container-messages">
+    <div class="alert alert-danger" *ngIf="invalidPrice" role="alert">
+        <span>Invalid price supplied</span>
+    </div>
+
+
+    <div class="alert alert-danger" *ngIf="invalidQauntity" role="alert">
+        <span>Invalid quantity supplied</span>
+    </div>
+</div>

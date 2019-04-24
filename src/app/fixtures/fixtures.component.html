@@ -1,0 +1,74 @@
+<div class="example-container">
+    <h3>Add a fixture</h3>
+    <form class="form-group" (ngSubmit)="onSubmit()" #fixtureForm="ngForm">
+
+        <div>
+            <mat-form-field>
+                <mat-label>Home Team</mat-label>
+                <mat-select name="homeTeam" [(ngModel)]="model.homeTeam" required>
+                    <mat-option *ngFor="let team of clubs" [value]="team">
+                        {{team}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field>
+                <mat-label>Away Team</mat-label>
+                <mat-select name="awayTeam" [(ngModel)]="model.awayTeam" required>
+                    <mat-option *ngFor="let team of clubs" [value]="team">
+                        {{team}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <div>
+            <mat-form-field>
+                <mat-label>Venue</mat-label>
+                <mat-select name="datepick" [(ngModel)]="model.venue" required>
+                    <mat-option *ngFor="let venue of venues" [value]="venue">
+                        {{venue}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field class="example-full-width">
+                <input matInput name="timestamp" [min]="minDate" [max]="maxDate" [matDatepicker]="picker" [(ngModel)]="model.timestamp" placeholder="Choose a date">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+        </div>
+        <div class="custom-btn">
+
+            <button mat-stroked-button color="accent" (click)="createFixture()" [disabled]="!fixtureForm.form.valid">Create</button>
+        </div>
+    </form>
+</div>
+
+<div class="container-messages">
+    <div class="alert alert-danger" *ngIf="invalid" role="alert">
+        <span>The home team cannot have the same value as the away team</span>
+    </div>
+</div>
+
+
+<!-- <div class="alert alert-danger" role="alert">
+    This is a danger alert—check it out!
+</div>
+
+<div class="alert alert-success" role="alert">
+    This is a success alert—check it out!
+</div> -->
+
+
+
+
+
+
+<!-- <ul class="order_list">
+    <li class="user " *ngFor="let o of (teams$  | async) ">
+        {{ o.name }} - {{ o.teamId }}
+    </li>
+</ul> -->

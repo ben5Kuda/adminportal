@@ -1,1 +1,189 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+div.mat-chip-list-wrapper {
+    display: flex;
+    // flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 24px;
+}
+
+.example-icon {
+    padding: 0 14px;
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+.example-container {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 60%;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    margin-left: 400px;
+    margin-right: 400px;
+    align-items: center;
+    background-color: white;
+}
+
+.example-container>* {
+    width: 45%;
+}
+
+.example-container-tickets {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 65%;
+    margin: 40px;
+    //padding: 40PX;
+    align-items: center;
+}
+
+.example-container-tickets>* {
+    width: 65%;
+}
+
+.example-container-fixtures {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 65%;
+    margin: 40px;
+    // padding: 40PX;
+    align-items: center;
+}
+
+.example-container-fixtures>* {
+    width: 65%;
+}
+
+.example-container-orders {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 65%;
+    margin: 40px;
+    // padding: 40PX;
+    align-items: center;
+}
+
+.example-container-orders>* {
+    width: 65%;
+}
+
+.example-full-width {
+    display: flex;
+    flex-basis: 80%;
+}
+
+.mat-datepicker-content .mat-calendar {
+    width: 550px;
+    height: 354px;
+}
+
+.mat-calendar {
+    display: flex;
+}
+
+.links {
+    margin: 0 auto;
+}
+
+.spin {
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.example-card {
+    margin: 0% auto;
+    max-width: 800px;
+}
+
+.example-header-image {
+    background-image: url('http://diverseedge.com/wp-content/uploads/2015/01/Hiring.jpg');
+    background-size: cover;
+}
+
+table {
+    width: 100%;
+}
+
+.mat-form-field {
+    font-size: 14px;
+    width: 100%;
+}
+
+td,
+th {
+    width: 25%;
+}
+
+th.ng-star-inserted {
+    width: 0;
+}
+
+.mat-calendar-table-header th {
+    text-align: center;
+    padding: 0 10px 6px 20px !important;
+}
+
+.navigate {
+    display: flex;
+    flex-direction: column;
+}
+
+html {
+    background-color: #f4f4f4 !important;
+}
+
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    text-align: left;
+    background-color: inherit !important;
+}
+
+.container-messages {
+    margin: 0 auto;
+    width: 30%;
+    padding-top: 10px;
+    padding-bottom: 40px;
+    padding-left: 40px;
+    padding-right: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.custom-btn {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    flex-direction: column;
+}
+
+.mat-form-field-appearance-legacy .mat-form-field-wrapper {
+    padding-bottom: 1.25em;
+    width: 60%;
+    margin: 0 auto;
+}
+
+.h3,
+h3 {
+    font-size: 1.75rem;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    flex-direction: column;
+}
+
+::ng-deep .snackBar-fail {
+    color: #ffffff !important;
+    background-color: #cc3333 !important;
+}

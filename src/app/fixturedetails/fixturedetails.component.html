@@ -1,0 +1,56 @@
+<div class="example-container-fixtures">
+    <mat-form-field>
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+    </mat-form-field>
+
+    <div class="order_list">
+
+        <div class="mat-elevation-z8">
+            <table mat-table [dataSource]="dataSource" matSort>
+
+                <ng-container matColumnDef="fixtureId">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+                    <td mat-cell *matCellDef="let o"> {{o.id}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="homeTeam">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Home Team </th>
+                    <td mat-cell *matCellDef="let o"> {{o.homeTeam}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="awayTeam">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Away Team </th>
+                    <td mat-cell *matCellDef="let o"> {{o.awayTeam}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="venue">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Venue </th>
+                    <td mat-cell *matCellDef="let o"> {{o.venue}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="timestamp">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Date </th>
+                    <td mat-cell *matCellDef="let o"> {{o.timestamp}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="add">
+                    <th mat-header-cell *matHeaderCellDef> Add Tickets </th>
+                    <td mat-cell *matCellDef="let o">
+                        <button mat-icon-button color="warn" (click)="addTickets(o)">
+                    <mat-icon class="mat-18">reorder</mat-icon>
+                </button>
+                    </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+                </tr>
+            </table>
+            <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+
+        </div>
+    </div>
+</div>
+
+<!-- 
+<app-tickets [o]="selectedHero"></app-tickets> -->

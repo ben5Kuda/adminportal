@@ -1,0 +1,136 @@
+<!--<div class="example-container">
+    <h3>Create Order</h3>
+    <form class="form-group" (ngSubmit)="onSubmit()" #orderForm="ngForm">
+        <div>
+            <mat-form-field>
+                <input matInput placeholder="OrderId" id="orderId" required [(ngModel)]="model.orderId" name="orderId">
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field>
+                <input matInput placeholder="Name" id="name" required [(ngModel)]="model.name" name="name">
+            </mat-form-field>
+        </div>
+
+        <div>
+            <mat-form-field>
+                <input matInput placeholder="Payment Confirmed" id="paymentConfirmed" required [(ngModel)]="model.paymentConfirmed" name="paymentConfirmed">
+            </mat-form-field>
+        </div>
+
+        <div>
+            <mat-form-field>
+                <input matInput placeholder="UsersId" id="usersId" required [(ngModel)]="model.usersId" name="usersId">
+            </mat-form-field>
+        </div>
+
+        <div>
+            <mat-form-field>
+                <input matInput placeholder="ticketId" id="ticketId" required [(ngModel)]="model.ticketId" name="ticketId">
+            </mat-form-field>
+        </div>
+
+        <div>
+            <mat-form-field>
+                <input matInput placeholder="Timestamp" id="timestamp" required [(ngModel)]="model.timestamp" name="timestamp">
+            </mat-form-field>
+        </div>
+
+        <div>
+            <mat-form-field>
+                <input matInput placeholder="Price" id="price" required [(ngModel)]="model.price" name="price">
+            </mat-form-field>
+        </div>
+
+        <div>
+            <mat-form-field>
+                <input matInput placeholder="Expired" id="expired" required [(ngModel)]="model.expired" name="expired">
+            </mat-form-field>
+        </div>
+
+
+        <div>
+            <button mat-stroked-button color="accent" (click)="createOrder()" [disabled]="!orderForm.form.valid">Create</button>
+        </div>
+    </form>
+</div>
+
+
+-->
+<div class="example-container-orders">
+    <mat-form-field>
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+    </mat-form-field>
+
+    <div class="order_list">
+
+        <div class="mat-elevation-z8">
+            <div *ngIf="ordersObs$ | async">
+                <mat-spinner></mat-spinner>
+            </div>
+            <table mat-table [dataSource]="dataSource" matSort>
+
+                <!-- ID Column -->
+                <ng-container matColumnDef="orderId">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+                    <td mat-cell *matCellDef="let o"> {{o.orderId}} </td>
+                </ng-container>
+
+                <!-- Progress Column -->
+                <ng-container matColumnDef="paymentConfirmed">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Payment Confirmed </th>
+                    <td mat-cell *matCellDef="let o"> {{o.paymentConfirmed}} </td>
+                </ng-container>
+
+                <!-- Name Column -->
+                <ng-container matColumnDef="name">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+                    <td mat-cell *matCellDef="let o"> {{o.name}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="delete">
+                    <th mat-header-cell *matHeaderCellDef> Edit </th>
+                    <td mat-cell *matCellDef="let o">
+                        <button mat-icon-button color="warn" (click)="edit(o.orderId)">
+                      <mat-icon class="mat-18">reorder</mat-icon>
+                  </button>
+                    </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+                </tr>
+            </table>
+            <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+
+        </div>
+    </div>
+</div>
+
+
+<!-- <div class="example-container"><button mat-raised-button (click)="openDialog()">Pick one</button></div> -->
+
+<!--<ul class="order_list">
+    <li class="user " *ngFor="let o of orderObs$ | async ">
+        {{ o.name }} - {{ o.usersId }}
+    </li>
+</ul> -->
+
+<!-- <ul class="order_list">
+    <li class="user " *ngFor="let o of orders">
+        {{ o.name }} - {{ o.expired }}
+    </li>
+</ul> -->
+
+
+<!--<div *ngIf="undefined === teams">
+    <section class="example-section">
+        <mat-progress-bar class="example-margin" [color]="color" [mode]="mode" [value]="value" [bufferValue]="bufferValue">
+        </mat-progress-bar>
+    </section>
+    <ul class="order_list">
+        <li class="user " *ngFor="let o of orders  ">
+            {{ o.name }} - {{ o.expired }}
+        </li>
+    </ul>
+</div>-->
