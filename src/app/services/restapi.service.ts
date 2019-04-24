@@ -14,7 +14,7 @@ import { AvailableTickets } from '../models/AvailableTickets';
 
 export class RestapiService {
 
-  //baseUrl = 'https://localhost:44372/';
+  // baseUrl = 'https://localhost:44372/';
   baseUrl = 'https://marketplaceticketingapibeta.azurewebsites.net/';
   fixturesUrl = this.baseUrl + 'v1/GlobalFixtures?';
   ordersUrl = this.baseUrl + 'v1/Orders?';
