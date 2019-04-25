@@ -18,7 +18,7 @@ export class TicketsComponent implements OnInit {
   public invalidPrice: boolean;
   public invalidQauntity: boolean;
   public name: string;
-  public minValue: number;
+  public minVal: number;
   public maxVal: number;
 
   fixtureId: number;
@@ -34,7 +34,7 @@ export class TicketsComponent implements OnInit {
   ngOnInit() {
     this.getFixtures();
     this.fixtureNames = [];
-    this.minValue = 1;
+    this.minVal = 1;
     this.maxVal = 50;
     this.navigation = this.router.getCurrentNavigation();
     console.log(this.fixture);
