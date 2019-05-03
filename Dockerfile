@@ -1,12 +1,23 @@
-FROM node:alpine AS builder
+FROM alpine:latest
 
+# update alpine linux
+RUN apk update && apk upgrade && \ 
+    apk add nodejs && \
+    apk add nodejs-npm && \
+    npm install -g @angular/cli@7.2.2
+
+# add source code to images
+ADD . /app
+
+# switch working directory
 WORKDIR /app
 
-COPY . .
-
+# install dependencies
 RUN npm install && \
-    npm run build
+    npm run build --prod
 
-FROM nginx:alpine
+# expose port 4200
+EXPOSE 4200 
 
-COPY --from=builder /app/dist/* /usr/share/nginx/html/
+# run ng serve on localhost
+CMD ["ng","serve", "--host", "0.0.0.0", "--disable-host-check"] 

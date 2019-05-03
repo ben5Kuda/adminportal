@@ -136,6 +136,9 @@ th.ng-star-inserted {
 
 html {
     background-color: #f4f4f4 !important;
+    max-width: -webkit-fill-available;
+    min-width: fit-content;
+    // width: fit-content !important;
 }
 
 body {
@@ -186,4 +189,75 @@ h3 {
 ::ng-deep .snackBar-fail {
     color: #ffffff !important;
     background-color: #cc3333 !important;
+}
+
+:host ::ng-deep button {
+    margin-right: .25em;
+}
+
+.ui-button-text ui-clickable {
+    display: flex;
+    flex-basis: 40%;
+    flex-direction: column;
+}
+
+.ui-sidebar-left {
+    top: 0;
+    left: 0;
+    width: 20em;
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100%;
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+}
+
+element.style {
+    display: flex;
+    flex-direction: initial;
+    align-items: flex-start;
+    flex-basis: 40%;
+    flex-grow: unset;
+    /* flex: 1 1; */
+}
+
+body .ui-button.ui-state-default.ui-button-success,
+body .ui-buttonset.ui-button-success>.ui-button.ui-state-default {
+    color: #ffffff;
+    width: initial;
+    background-color: slategray !important;
+    border: 1px solid steelblue !important;
+}
+
+.mat-chip.mat-standard-chip.mat-chip-selected.mat-accent {
+    background-color: #ff4081;
+    color: #fff;
+    width: -webkit-fill-available;
+    align-items: -webkit-center;
+}
+
+@media (max-width: 320) {
+    .container {
+        padding: 0;
+        margin: 0;
+    }
+    .col-xs-12 {
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+}
+
+.col {
+    flex-basis: 0;
+    flex-grow: 1;
+    max-width: 100%;
+    padding: 0 !important;
+}
+
+.container {
+    width: 100%;
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+    margin-right: auto;
+    margin-left: auto;
 }

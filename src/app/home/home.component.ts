@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {MessageService} from 'primeng/api';
 import { Router } from '@angular/router';
+import { windowWhen } from 'rxjs/operators';
 
 
 @Component({
@@ -31,7 +32,7 @@ export class HomeComponent implements OnInit {
   }
 
   onSelect(): void {
-   this.router.navigateByUrl('https://tikit.azurewebsites.net');
+   window.open('https://tikit.azurewebsites.net');
   }
 
 }

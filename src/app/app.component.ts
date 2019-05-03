@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { OAuthService } from 'angular-oauth2-oidc';
 import { JwksValidationHandler } from 'angular-oauth2-oidc';
 import { authConfig } from './oauth/authConfig';
@@ -18,8 +18,11 @@ export class AppComponent implements OnInit {
   opt: any;
   title = 'Admin Console';
   dashboard = 'Logout';
+  visibleSidebar;
 
-  visibleSidebar1;
+
+  mode = new FormControl('over');
+
 
   constructor(private oauthService: OAuthService, private router: Router) {
     this.configureWithNewConfigApi();
@@ -45,6 +48,7 @@ public get name() {
 
   onSelect(opt: string): void {
     this.opt = opt.toLowerCase();
+    this.visibleSidebar = false;
     if (this.opt === 'home') {
       this.router.navigate(['']);
     } else {

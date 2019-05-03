@@ -14,7 +14,7 @@ public model: AvailableTickets;
 public ticketFixtures: TicketFixtures;
 public ticketList: TicketFixtures [];
 public dataSource: MatTableDataSource<AvailableTickets>;
- // ticketEntity = new TicketFixtures();
+ // ticketEntity// = new TicketFixtures();
 
 // tslint:disable-next-line:max-line-length
 public displayedColumns = ['fixtureId', 'timestamp', 'quantityAvailable', 'isAvailable', 'edit'];
@@ -36,29 +36,31 @@ public displayedColumns = ['fixtureId', 'timestamp', 'quantityAvailable', 'isAva
 
   getAllTickets(): void {
     this.restapiService.findAllTickets().subscribe(data => {
-      data.forEach(element => {
-        this.restapiService.findAllFixtures().subscribe(fx => {
-          fx.forEach(item => {
-            if (item.id === element.fixtureId) {
+      // data.forEach(element => {
+      //   this.restapiService.findAllFixtures().subscribe(fx => {
+      //     fx.forEach(item => {
+      //       if (item.id === element.fixtureId) {
 
-            // this.model.fixtureId = item.id;
-            // this.ticketEntity.ticketId = element.ticketId;
-            // this.ticketEntity.block = element.block;
-            // this.ticketEntity.fixtureName = item.name;
-            // this.ticketEntity.category = element.category;
-            // this.ticketEntity.isAvailable = element.isAvailable;
-            // this.ticketEntity.price = element.price;
-            // this.ticketEntity.timestamp = element.timestamp;
-            // this.ticketEntity.quantityAvailable = element.quantityAvailable;
-            // this.ticketEntity.row = element.row;
+      //        const ticketEntity = new TicketFixtures();
+      //       // this.model.fixtureId = item.id;
 
-            // this.ticketList.push(this.ticketEntity);
+      //       ticketEntity.ticketId = element.ticketId;
+      //       ticketEntity.block = element.block;
+      //       ticketEntity.fixtureName = item.name;
+      //       ticketEntity.category = element.category;
+      //       ticketEntity.isAvailable = element.isAvailable;
+      //       ticketEntity.price = element.price;
+      //       ticketEntity.timestamp = element.timestamp;
+      //       ticketEntity.quantityAvailable = element.quantityAvailable;
+      //       ticketEntity.row = element.row;
 
-            }
+      //       this.ticketList.push(ticketEntity);
 
-          });
-        });
-      });
+      //       }
+
+      //     });
+      //   });
+      // });
 
      this.dataSource.data = data;
      console.log(this.ticketList);

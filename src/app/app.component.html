@@ -1,12 +1,58 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div class="back">
+
+
     <mat-toolbar color="primary">
-        <span>{{title}}</span>
+
+        <div class="navigate">
+
+
+            <!-- <ul class="nav flex-column text-truncate navbar-dark bg-dark pt-2 vh-100" id="sidebar">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">Active</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Link</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Link</a>
+                        </li>
+        
+                    </ul> -->
+            <!-- <nav style="padding:10px; display: flex; flex-direction: column;"> -->
+
+            <p-sidebar [(visible)]="visibleSidebar" [baseZIndex]="10000">
+                <h1 style="font-weight:normal">Menu Sidebar</h1>
+
+                <mat-chip-list style="display: flex; flex-direction: column; flex: 1 1;">
+                    <mat-chip color="accent" selected *ngFor="let opt of options" [class.selected]="opt === selectedOption" (click)="onSelect(opt)">{{opt}}</mat-chip>
+                </mat-chip-list>
+            </p-sidebar>
+
+            <button pButton type="button" (click)="visibleSidebar = true" icon="pi pi-th-large"></button>
+            <!-- <a routerLink="/">
+                            Home 
+                         </a>
+                        <a routerLink="/view-fixtures">
+                           View Fixtures
+                        </a>
+                        <a routerLink="/add-fixtures">
+                            Add Fixtures 
+                         </a>
+                        <a routerLink="/tickets">
+                            Tickets 
+                         </a>
+                        <a routerLink="/users">
+                            Users 
+                         </a>
+                        <a routerLink="/orders">
+                          Orders
+                        </a> -->
+
+        </div>
+        <span style="margin: 0 auto;">{{title}}</span>
         <span><div class="chips">
-      <mat-chip-list>
-          <mat-chip  color="accent" selected *ngFor="let opt of options" [class.selected]="opt === selectedOption" (click)="onSelect(opt)">{{opt}}</mat-chip>
-         
-      </mat-chip-list>
+    
   </div></span>
 
         <span class="fill"></span>
@@ -18,19 +64,14 @@
 
 </div>
 
-<p-sidebar [(visible)]="visibleSidebar1" [baseZIndex]="10000">
-    <h1 style="font-weight:normal">Left Sidebar</h1>
-    <button pButton type="button" (click)="visibleSidebar1 = false" label="Save" class="ui-button-success"></button>
-    <button pButton type="button" (click)="visibleSidebar1 = false" label="Cancel" class="ui-button-secondary"></button>
-</p-sidebar>
+<div class="col-xs-12 col-sm-12 col-lg-12">
+    <!-- Teal page content  -->
+    <div class="container">
 
-
-<!--<div class="navigate">
-    <nav style="padding:40px; display: flex; flex-direction: column;">
-        <a routerLink="/fixtures">Fixtures</a>
-        <a routerLink="/orders">Orders</a>
-    </nav>
-</div>-->
+        <!--router outlet-->
+        <router-outlet></router-outlet>
+    </div>
+</div>
 
 
 <!--<app-fixtures></app-fixtures> -->
@@ -46,5 +87,3 @@
 </footer>
 
 <!-- Footer -->
-
-<router-outlet></router-outlet>
